@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      padding-top:10vh;
+    }
+
+  nav {
+  height: 10vh;
+  width: 100%;
+  background-color: #222;
+  display: flex;
+  justify-content: center;   /* ✅ keeps buttons centered */
+  align-items: center;
+  position:fixed; 
+  top:0;
+  left:0;       /* ✅ lets logo break out */
+  padding: 0 40px;
+  z-index:1000;
+}
+
+/* Logo fixed to far left */
+.nav-logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #d4006e, #8b2dbf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Buttons grouped in the center */
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Button style (like before) */
+.nav-buttons button {
+  color: white;
+  width: 120px;
+  height: 50px;
+  background-color: green;
+  text-align: center;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: grey;
+}
+  /* Hero Section with Background + Overlay */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 75vh;
+  text-align: center;
+  margin-top: 10vh;
+  background-image: url('hero-bg.jpg.jpg'); /* <-- replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height:100%
+  background:rgba(255,255,255,0.3);/* overlay */
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2; /* keeps text above overlay */
+}
+    /* Logo + Text */
+    .logo-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #d4006e, #8b2dbf);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .brand {
+      font-size: 80px;
+      font-weight: bold;
+      color: #222;
+    }
+/* Hero Boxes */
+.hero-box {
+  background: rgba(255, 255, 255, 0.15); /* frosted-glass look */
+  backdrop-filter: blur(6px);
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  text-align: left;
+  color: #111;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for hero boxes */
+.hero-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.hero-box h2 {
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  color: #111;
+}
+
+.hero-box p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Values list inside hero box */
+.hero-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2-column layout */
+  gap: 10px;
+}
+
+.hero-box li {
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  border-left: 4px solid #d4006e;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* Hover effect for values list items */
+.hero-box li:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.2);
+}
+   
+/*  Mobile Responsive Fix */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .nav-buttons {
+    flex-wrap: wrap;        /* allow buttons to go to the next line */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-buttons button {
+    width: 100px;           /* smaller buttons */
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .hero {
+    height: auto;           /* let hero section adjust height */
+    padding: 40px 20px;
+    margin-top: 15vh;       /* extra space under nav */
+  }
+
+  .brand {
+    font-size: 48px;        /* smaller logo text */
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .subtitle,
+  .hero-box {
+    font-size: 16px;
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .subtitle ul {
+    grid-template-columns: 1fr;  /* stack values in one column */
+  }
+}
+  </style>
+</head>
+<body>
+ 
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-logo">pL</div>
+    <div class="nav-buttons">
+    <button name="products">Products</button>
+    <button name="company">Company</button>
+    <button name="contact">Contact</button>
+    <button name="home">Home</button>
+    <button name="cart">Cart</button>
+    <button name="login">Login</button>
+  </nav>
+<!-- Hero Section -->
+<div class="hero">
+  <div class="logo-text">
+    <div class="logo">pL</div>
+    <div class="brand">pocoLoco</div>
+  </div>
+
+  <!-- Box 1 -->
+  <div class="hero-box">
+    <h2>Get to know pocoLoco</h2>
+    <p>
+      pocoLoco is an e-commerce platform that aims to bridge the gap between customers and sellers 
+      by providing a seamless and user-friendly shopping experience. Our mission is to empower 
+      small businesses and artisans by giving them a platform to showcase their unique products 
+      to a wider audience.
+    </p>
+  </div>
+
+  <!-- Box 2 -->
+  <div class="hero-box">
+    <h2>Our Vision</h2>
+    <p>
+      Our vision is to become the most trusted marketplace where creativity, culture, 
+      and community thrive together, giving small businesses a global stage.
+    </p>
+  </div>
+
+  <!-- Box 3 -->
+  <div class="hero-box">
+    <h2>Our Values</h2>
+    <ul>
+      <li><b>Inclusivity</b> – Giving small sellers a chance to shine globally.</li>
+      <li><b>Trust</b> – Building secure and reliable relationships between buyers and sellers.</li>
+      <li><b>Innovation</b> – Using technology to simplify online shopping.</li>
+      <li><b>Sustainability</b> – Encouraging eco-friendly and ethical trade.</li>
+    </ul>
+  </div>
+</div>
+  
+</body>
+</html>
+      

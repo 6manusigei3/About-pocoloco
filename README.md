@@ -1,1 +1,3 @@
-# About-pocoloco
+# About-pocoloco 
+pocoLoco is an e-commerce website
+
